@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Normalize } from 'styled-normalize';
+
+import App from 'Containers/App/App';
+import * as serviceWorker from 'serviceWorker';
+import GlobalStyles from 'GlobalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Normalize />
+    <GlobalStyles />
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,16 +1,24 @@
 import React from 'react';
+import { makeStyles, AppBar, Typography } from '@material-ui/core';
+import IssuesTable from 'Components/IssuesTable';
 
-import { AppHeader, AppTitle } from './AppStyles';
-import useIssues from 'Hooks/useIssues';
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
 function App() {
-  const { issues, isError, isLoading } = useIssues();
+  const classes = useStyles();
   return (
-    <>
-      <AppHeader className="App-header">
-        <AppTitle>Recruitment Task - Agile Board</AppTitle>
-      </AppHeader>
-    </>
+    <div className={classes.root}>
+      <AppBar className="App-header" position="relative">
+        <Typography variant="h3" align="center">
+          Recruitment Task - Agile Board
+        </Typography>
+      </AppBar>
+      <IssuesTable />
+    </div>
   );
 }
 

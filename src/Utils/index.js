@@ -7,4 +7,18 @@ const splitIssuesIntoColumns = (issues) =>
     { TODO: [], PENDING: [], CLOSED: [] },
   );
 
-export { splitIssuesIntoColumns };
+const reorderIssues = (issues, sourceColumnKey, destColumnKey, issueUuid) => {
+  const sourceColumnCopy = [...issues[sourceColumnKey]];
+  const issueToChange = sourceColumnCopy.splice(
+    sourceColumnCopy.findIndex((x) => x.uuid === issueUuid),
+    1,
+  )[0];
+
+  return {
+    ...issues,
+    [sourceColumnKey]: sourceColumnCopy,
+    [destColumnKey]: [...issues[destColumnKey], issueToChange],
+  };
+};
+
+export { reorderIssues, splitIssuesIntoColumns };

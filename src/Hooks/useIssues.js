@@ -30,5 +30,5 @@ export default () => {
     fetchIssues();
   }, []);
 
-  return { issues, isLoading, isError };
+  return { issues, isLoading, isError, setIssues };
 };

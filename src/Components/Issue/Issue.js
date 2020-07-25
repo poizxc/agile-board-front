@@ -1,32 +1,38 @@
 import React from 'react';
-import { Icon, Typography, Button, Box } from '@material-ui/core';
+import { Icon, Typography, Button, Paper, Box, Divider } from '@material-ui/core';
 import { Draggable } from 'react-beautiful-dnd';
-
-const Issue = ({ issue, index, setIssueModal }) => {
+const Issue = ({ issue, index, setIssueModal, handleDelete, column }) => {
   const handleEdit = () => {
-    setIssueModal({ opened: true, issue });
+    setIssueModal({ opened: true, issue, openedForColumn: column });
   };
   return (
     <Draggable draggableId={issue.uuid} index={index}>
       {(provided, snapshot) => (
-        <Box ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} border={1}>
-          <Typography variant="h6" align="center">
-            {issue.title}
-          </Typography>
-          <Typography variant="body2">description: {issue.description} </Typography>
-          <Typography variant="body2">estimate: {issue.estimate} </Typography>
+        <Box mb={1}>
+          <Paper elevation={6} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+            <Box p={3}>
+              <Typography variant="h6" align="center">
+                {issue.title}
+              </Typography>
+              <Typography variant="body2"> {issue.description} </Typography>
+              <Divider variant="fullWidth" style={{ marginBottom: 10, marginTop: 10 }} />
+              <Typography variant="body2">Estimate: {issue.estimate} </Typography>
+              <Box margin={1} display="flex" justifyContent="space-around" flexDirection="row">
+                <Button onClick={handleEdit} size="small" color="primary" variant="contained">
+                  <Icon fontSize="small">edit</Icon>
+                </Button>
 
-          <Box margin={1} display="flex" justifyContent="space-around" flexDirection="row">
-            <Button onClick={handleEdit} size="small" color="primary" variant="contained">
-              Edit
-              <Icon fontSize="small">edit</Icon>
-            </Button>
-
-            <Button size="small" color="secondary" variant="contained">
-              Delete
-              <Icon fontSize="small">delete</Icon>
-            </Button>
-          </Box>
+                <Button
+                  onClick={() => handleDelete(issue.uuid, column)}
+                  size="small"
+                  color="secondary"
+                  variant="contained"
+                >
+                  <Icon fontSize="small">delete</Icon>
+                </Button>
+              </Box>
+            </Box>
+          </Paper>
         </Box>
       )}
     </Draggable>

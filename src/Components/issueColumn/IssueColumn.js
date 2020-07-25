@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles, Box } from '@material-ui/core/';
+import { makeStyles, Paper, Typography, Box, Divider } from '@material-ui/core/';
 import { Droppable } from 'react-beautiful-dnd';
 
 const useStyles = makeStyles((theme) => ({
   column: {
     padding: '15px',
-    width: '30%',
+    width: '31.5%',
   },
 }));
 export default ({ column, children }) => {
@@ -13,18 +13,20 @@ export default ({ column, children }) => {
   return (
     <Droppable droppableId={column}>
       {(provided) => (
-        <Box
+        <Paper
+          elevation={8}
           ref={provided.innerRef}
           {...provided.droppableProps}
           key={column}
-          border={1}
-          borderRadius={4}
           className={classes.column}
         >
-          {column}
+          <Box borderRadius={2} p={1} mb={2}>
+            <Typography align="center">{column}</Typography>
+            <Divider variant="fullwidth" />
+          </Box>
           {children()}
           {provided.placeholder}
-        </Box>
+        </Paper>
       )}
     </Droppable>
   );

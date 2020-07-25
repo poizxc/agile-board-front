@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ISSUES_URL } from 'config/constants';
+import { ISSUES_URL } from 'Config/constants';
 import { splitIssuesIntoColumns } from 'Utils';
 
 export default () => {

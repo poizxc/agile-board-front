@@ -23,6 +23,7 @@ export default ({ column, children }) => {
         >
           {column}
           {children()}
+          {provided.placeholder}
         </Box>
       )}
     </Droppable>

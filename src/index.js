@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Normalize } from 'styled-normalize';
-
-import App from 'Containers/App/App';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import IssueBoard from 'Components/IssueBoard';
 import * as serviceWorker from 'serviceWorker';
-import GlobalStyles from 'GlobalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Normalize />
-    <GlobalStyles />
-    <App />
+    <CssBaseline />
+    <IssueBoard />
   </React.StrictMode>,
   document.getElementById('root'),
 );

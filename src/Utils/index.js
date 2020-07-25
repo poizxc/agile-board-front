@@ -9,7 +9,7 @@ const splitIssuesIntoColumns = (issues) =>
 
 const reorderIssues = (issues, sourceColumnKey, destColumnKey, issueUuid) => {
   const sourceColumnCopy = [...issues[sourceColumnKey]];
-  const issueToChange = sourceColumnCopy.splice(
+  const issueToChangeCulumn = sourceColumnCopy.splice(
     sourceColumnCopy.findIndex((x) => x.uuid === issueUuid),
     1,
   )[0];
@@ -17,7 +17,7 @@ const reorderIssues = (issues, sourceColumnKey, destColumnKey, issueUuid) => {
   return {
     ...issues,
     [sourceColumnKey]: sourceColumnCopy,
-    [destColumnKey]: [...issues[destColumnKey], issueToChange],
+    [destColumnKey]: [...issues[destColumnKey], issueToChangeCulumn],
   };
 };
 

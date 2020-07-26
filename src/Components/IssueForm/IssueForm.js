@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { TextField, Button, Icon, Box } from '@material-ui/core';
 import * as Yup from 'yup';
@@ -25,7 +26,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
     <form onSubmit={handleSubmit}>
       <Box display="flex" flexDirection="column" alignItems="flex-end">
         <TextField
-          error={errors.title}
+          error={errors.title && true}
           margin="normal"
           id="title"
           label="Title"
@@ -38,7 +39,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           helperText={errors.title}
         />
         <TextField
-          error={errors.description}
+          error={errors.description && true}
           margin="normal"
           id="description"
           name="description"
@@ -54,7 +55,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           helperText={errors.description && errors.description}
         />
         <TextField
-          error={errors.estimate}
+          error={errors.estimate && true}
           margin="normal"
           variant="outlined"
           id="estimate"
@@ -67,7 +68,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           helperText={errors.estimate && errors.estimate}
         />
         <TextField
-          error={errors.status}
+          error={errors.status && true}
           margin="normal"
           id="status"
           label="Status"
@@ -86,6 +87,19 @@ const IssueForm = ({ initialData, handleOperation }) => {
       </Box>
     </form>
   );
+};
+
+IssueForm.propTypes = {
+  initialData: PropTypes.oneOfType([
+    PropTypes.shape({
+      description: PropTypes.string,
+      estimate: PropTypes.number,
+      title: PropTypes.string,
+      status: PropTypes.oneOf(['TODO', 'PENDING', 'CLOSED']).isRequired,
+      uuid: PropTypes.string,
+    }).isRequired,
+    PropTypes.bool.isRequired,
+  ]).isRequired,
 };
 
 export default IssueForm;

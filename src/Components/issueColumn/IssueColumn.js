@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper, Typography, Box, Divider } from '@material-ui/core/';
 import { Droppable } from 'react-beautiful-dnd';
 import useStyles from './issueColumnStyles';
 
-export default ({ column, children }) => {
+const IssueColumn = ({ column, children }) => {
   const classes = useStyles();
   return (
     <Droppable droppableId={column}>
@@ -26,3 +27,10 @@ export default ({ column, children }) => {
     </Droppable>
   );
 };
+
+IssueColumn.propTypes = {
+  column: PropTypes.string,
+  children: PropTypes.func,
+};
+
+export default IssueColumn;

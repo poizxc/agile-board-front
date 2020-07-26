@@ -9,6 +9,7 @@ const IssueBoard = () => {
   const [issueModal, setIssueModal] = React.useState({ opened: false });
   const { isLoading, isError, issues, setIssues } = useIssues();
   const { showMessage } = useContext(MessageContext);
+
   const handleCreate = async (newIssue) => {
     try {
       const { data } = await axios.post(ISSUES_URL, newIssue);
@@ -20,6 +21,7 @@ const IssueBoard = () => {
       console.error(e);
     }
   };
+
   const handleEdit = async (newIssue) => {
     try {
       await axios.put(`${ISSUES_URL}/${newIssue.uuid}`, {
@@ -39,9 +41,11 @@ const IssueBoard = () => {
       console.error(e);
     }
   };
+
   const handleModalClose = () => {
     setIssueModal({ opened: false });
   };
+
   const handleDelete = async (uuid, column) => {
     try {
       await axios.delete(`${ISSUES_URL}/${uuid}`);
@@ -52,6 +56,7 @@ const IssueBoard = () => {
       console.log(e);
     }
   };
+
   return (
     <>
       <IssuesTable
@@ -64,7 +69,7 @@ const IssueBoard = () => {
       />
       {issueModal.opened && (
         <IssueModal
-          ModalData={issueModal}
+          modalData={issueModal}
           handleClose={handleModalClose}
           handleEdit={handleEdit}
           handleCreate={handleCreate}

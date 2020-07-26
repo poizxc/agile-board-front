@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon, Typography, Button, Paper, Box, Divider } from '@material-ui/core';
 import { Draggable } from 'react-beautiful-dnd';
 const Issue = ({ issue, index, setIssueModal, handleDelete, column }) => {
   const handleEdit = () => {
     setIssueModal({ opened: true, issue, openedForColumn: column });
   };
+
   return (
     <Draggable draggableId={issue.uuid} index={index}>
       {(provided, snapshot) => (
@@ -37,6 +39,19 @@ const Issue = ({ issue, index, setIssueModal, handleDelete, column }) => {
       )}
     </Draggable>
   );
+};
+
+Issue.propTypes = {
+  column: PropTypes.string,
+  handleDelete: PropTypes.func,
+  index: PropTypes.number,
+  issue: PropTypes.shape({
+    description: PropTypes.string,
+    estimate: PropTypes.number,
+    title: PropTypes.string,
+    uuid: PropTypes.string,
+  }),
+  setIssueModal: PropTypes.func,
 };
 
 export default Issue;

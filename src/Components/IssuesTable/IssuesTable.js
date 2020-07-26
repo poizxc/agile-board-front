@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { CircularProgress, Container, Box, Button, Icon } from '@material-ui/core';
 import { DragDropContext } from 'react-beautiful-dnd';
 import axios from 'axios';
@@ -9,7 +10,7 @@ import Issue from 'Components/Issue';
 import { MessageContext } from 'contexts/MessageContext';
 import useStyles from './IssuesTableStyles';
 
-export default ({ setIssueModal, setIssues, issues, isLoading, isError, handleDelete }) => {
+const IssuesTable = ({ setIssueModal, setIssues, issues, isLoading, isError, handleDelete }) => {
   const classes = useStyles();
   const { showMessage } = useContext(MessageContext);
 
@@ -85,3 +86,40 @@ export default ({ setIssueModal, setIssues, issues, isLoading, isError, handleDe
     </Container>
   );
 };
+IssuesTable.propTypes = {
+  setIssueModal: PropTypes.func.isRequired,
+  setIssues: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  issues: PropTypes.shape({
+    PENDING: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        estimate: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
+        status: PropTypes.oneOf(['TODO', 'PENDING', 'CLOSED']).isRequired,
+      }),
+    ),
+    TODO: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        estimate: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
+        status: PropTypes.oneOf(['TODO', 'PENDING', 'CLOSED']).isRequired,
+      }),
+    ),
+    CLOSED: PropTypes.arrayOf(
+      PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        estimate: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        uuid: PropTypes.string.isRequired,
+        status: PropTypes.oneOf(['TODO', 'PENDING', 'CLOSED']).isRequired,
+      }),
+    ),
+  }).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+};
+export default IssuesTable;

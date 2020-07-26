@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Typography, Box, Container, Paper } from '@material-ui/core';
 import IssueForm from 'Components/IssueForm';
 import useStyles from 'Components/IssuesTable/IssuesTableStyles';
-const IssueModal = ({ ModalData: { issue }, handleClose, handleCreate, handleEdit }) => {
+const IssueModal = ({ modalData: { issue }, handleClose, handleCreate, handleEdit }) => {
   const classes = useStyles();
+
   const renderEdit = () => {
     return <IssueForm initialData={issue} handleOperation={handleEdit}></IssueForm>;
   };
@@ -31,6 +33,18 @@ const IssueModal = ({ ModalData: { issue }, handleClose, handleCreate, handleEdi
       </Container>
     </Modal>
   );
+};
+
+IssueModal.propTypes = {
+  modalData: PropTypes.shape({
+    description: PropTypes.string,
+    estimate: PropTypes.number,
+    title: PropTypes.string,
+    uuid: PropTypes.string,
+  }).isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleCreate: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };
 
 export default IssueModal;

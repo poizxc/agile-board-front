@@ -35,7 +35,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           fullWidth
           variant="outlined"
           onChange={handleChange}
-          value={values.title}
+          defaultValue={values.title}
           helperText={errors.title}
         />
         <TextField
@@ -51,7 +51,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           label="Description"
           type="text"
           onChange={handleChange}
-          value={values.description}
+          defaultValue={values.description}
           helperText={errors.description && errors.description}
         />
         <TextField
@@ -64,7 +64,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           fullWidth
           type="number"
           onChange={handleChange}
-          value={values.estimate}
+          defaultValue={values.estimate}
           helperText={errors.estimate && errors.estimate}
         />
         <TextField
@@ -78,7 +78,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           fullWidth
           variant="outlined"
           onChange={handleChange}
-          value={values.status}
+          defaultValue={values.status}
           helperText={errors.status && errors.status}
         />
         <Button type="submit" variant="contained" color="primary">

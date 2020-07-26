@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/agile-board-front/static/js/main.6a2f1b71.chunk.js",
+    "main.js.map": "/agile-board-front/static/js/main.6a2f1b71.chunk.js.map",
+    "runtime-main.js": "/agile-board-front/static/js/runtime-main.014ebaff.js",
+    "runtime-main.js.map": "/agile-board-front/static/js/runtime-main.014ebaff.js.map",
+    "static/js/2.049acc7a.chunk.js": "/agile-board-front/static/js/2.049acc7a.chunk.js",
+    "static/js/2.049acc7a.chunk.js.map": "/agile-board-front/static/js/2.049acc7a.chunk.js.map",
+    "index.html": "/agile-board-front/index.html",
+    "precache-manifest.19fed281ca87cde4db14411293410ff8.js": "/agile-board-front/precache-manifest.19fed281ca87cde4db14411293410ff8.js",
+    "service-worker.js": "/agile-board-front/service-worker.js",
+    "static/js/2.049acc7a.chunk.js.LICENSE.txt": "/agile-board-front/static/js/2.049acc7a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.014ebaff.js",
+    "static/js/2.049acc7a.chunk.js",
+    "static/js/main.6a2f1b71.chunk.js"
+  ]
+}

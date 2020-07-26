@@ -1,68 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Agile-Board-front
 
-## Available Scripts
+![Agile-Board-front](app.png)
 
-In the project directory, you can run:
+This is front for **Agile-Board** Recruitment task written using react.
 
-### `yarn start`
+Board allows you to **create** new issue, **edit** existing one or to **delete** them. You can change current state of issue by simply dragging them to another column.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I deployed this application to **github pages** https://poizxc.github.io/agile-board-front/ but I can't ensure that someone will not mess with the data - it is **publicly** available. Board should look like this in the screen above. You can reset **database** to the state that I wanted it to be - all the details are in **[Notes For Reviewers](#notes-for-reviewers)**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This project was bootstrapped using **Create-React-App** old readme can be found in README.old.md
 
-### `yarn test`
+## Table Of Contents
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Agile-Board-front](#agile-board-front)
+  - [Table Of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+  - [Running Application](#running-application)
+  - [Running Tests](#running-tests)
+  - **[Notes For Reviewers](#notes-for-reviewers)**
+    - **[Tech Stack](#tech-stack)**
+      - [Framework](#framework)
+      - [State Management](#state-management)
+      - [Type Checking](#type-checking)
+      - [Styling](#styling)
+      - [drag and drop](#drag-and-drop)
 
-### `yarn build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node**
+- **npm** / **yarn**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install **Agile-Board-front** use **Yarn** or **NPM**
 
-### `yarn eject`
+```
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Before starting development server you may need to change proxy section in package.json, but it will be needed only if you changed default port of api.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To start development server type :
 
-## Learn More
+```
+yarn start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+or
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm run start
+```
 
-### Code Splitting
+## Running Tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+To run tests you need to type :
 
-### Analyzing the Bundle Size
+```
+yarn test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+or
 
-### Making a Progressive Web App
+```
+npm run test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Notes For Reviewers
 
-### Advanced Configuration
+I implemented drag and drop in this application just to have possibility to change statuses, **reordering** of the list in one column is **not persistent**, I added this just to improve **UX** a little bit.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+I added some styles to make this app more **responsive** but I didn't spend much time on it, so it is not looking the best, but should be functional **enough**.
 
-### Deployment
+I hosted **Api** for this on the free plan on **Heroku** so its may feel slow :/ cannot fight with it ;)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Because I cannot ensure that no one will mess with the data. I created one endpoint to **reset** DB.
 
-### `yarn build` fails to minify
+```
+curl --location --request DELETE 'https://agile-board1.herokuapp.com/api/v1/issues/_/reset-db'
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Tech Stack
+
+#### Framework
+
+I Decided to use **React** for this application, I was trying to follow the trends so i ended up with hooks based application. I didn't wrote any **webpack** config for this project i simply used **create-react-app**
+
+#### State Management
+
+I didn't used any state management libraries such as **redux** or **mobx** - I decided that it will overcomplicate things in such small app,
+
+#### Type Checking
+
+I didn't used any static type checking solutions such as **typescript** or **flow**, again I decided it will overcomplicate things, but I used **PropTypes** to have some control on types :)
+
+#### Styling
+
+I used Material Ui Components for this application.
+
+#### drag and drop
+
+I used react-beautiful-dnd to achieve drag and drop functionality
+
+[back to top](#Agile-Board-Front)

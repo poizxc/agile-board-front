@@ -2,6 +2,7 @@
   "name": "agile-board-front",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://poizxc.github.io/agile-board-front",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +44,7 @@
   },
   "proxy": "http://localhost:3012",
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "prettier": "^2.0.5",
     "yup": "^0.29.1"
   }

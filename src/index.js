@@ -5,11 +5,13 @@ import IssueBoard from 'Components/IssueBoard';
 import * as serviceWorker from 'serviceWorker';
 import MessageProvider from 'contexts/MessageContext';
 import Message from 'Components/Message';
+import Header from 'Components/Header';
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
     <MessageProvider>
+      <Header />
       <IssueBoard />
       <Message />
     </MessageProvider>

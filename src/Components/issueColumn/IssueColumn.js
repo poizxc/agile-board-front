@@ -1,13 +1,8 @@
 import React from 'react';
-import { makeStyles, Paper, Typography, Box, Divider } from '@material-ui/core/';
+import { Paper, Typography, Box, Divider } from '@material-ui/core/';
 import { Droppable } from 'react-beautiful-dnd';
+import useStyles from './issueColumnStyles';
 
-const useStyles = makeStyles((theme) => ({
-  column: {
-    padding: '15px',
-    width: '31.5%',
-  },
-}));
 export default ({ column, children }) => {
   const classes = useStyles();
   return (
@@ -20,7 +15,7 @@ export default ({ column, children }) => {
           key={column}
           className={classes.column}
         >
-          <Box borderRadius={2} p={1} mb={2}>
+          <Box>
             <Typography align="center">{column}</Typography>
             <Divider variant="fullWidth" />
           </Box>

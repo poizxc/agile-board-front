@@ -1,7 +1,9 @@
 import React from 'react';
 import { Modal, Typography, Box, Container, Paper } from '@material-ui/core';
 import IssueForm from 'Components/IssueForm';
+import useStyles from 'Components/IssuesTable/IssuesTableStyles';
 const IssueModal = ({ ModalData: { issue }, handleClose, handleCreate, handleEdit }) => {
+  const classes = useStyles();
   const renderEdit = () => {
     return <IssueForm initialData={issue} handleOperation={handleEdit}></IssueForm>;
   };
@@ -11,7 +13,7 @@ const IssueModal = ({ ModalData: { issue }, handleClose, handleCreate, handleEdi
 
   return (
     <Modal
-      style={{ display: 'flex', justifyContent: 'center' }}
+      className={classes.modal}
       disableAutoFocus={true}
       open={true}
       onClose={handleClose}

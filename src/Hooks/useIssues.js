@@ -11,16 +11,20 @@ export default () => {
     CLOSED: [],
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const { showMessage: showErrorMessage } = useContext(MessageContext);
   useEffect(() => {
     const fetchIssues = async () => {
       setIsLoading(true);
+      setIsError(false);
       try {
         const { data } = await axios.get(ISSUES_URL);
 
         setIssues(splitIssuesIntoColumns(data));
       } catch (error) {
         showErrorMessage(error.message);
+        setIsError(true);
         console.error(error);
       }
 
@@ -31,5 +35,5 @@ export default () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { issues, isLoading, setIssues };
+  return { issues, setIssues, isLoading, isError };
 };

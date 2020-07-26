@@ -35,15 +35,13 @@ const reorderIssues = (issues, source, dest, issueUuid) => {
     [sourceColumnKey]: sourceColumnCopy,
   };
 };
-
 const validateDropPossibility = (source, destination) => {
   if (!destination) {
     return false;
   }
-  if (source.droppableId === 'PENDING' && destination.droppableId === 'TODO') {
-    return false;
-  }
-  if (source.droppableId === 'CLOSED' && destination.droppableId !== 'CLOSED') {
+  const isPendingGoingBack = source.droppableId === 'PENDING' && destination.droppableId === 'TODO';
+  const isClosedGoingBack = source.droppableId === 'CLOSED' && destination.droppableId !== 'CLOSED';
+  if (isClosedGoingBack || isPendingGoingBack) {
     return false;
   }
   return true;

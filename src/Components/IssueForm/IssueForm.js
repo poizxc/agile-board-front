@@ -11,7 +11,7 @@ const issueSchema = Yup.object().shape({
 });
 
 const IssueForm = ({ initialData, handleOperation }) => {
-  const { handleSubmit, errors, touched, values, handleChange } = useFormik({
+  const { handleSubmit, errors, values, handleChange } = useFormik({
     initialValues: {
       status: 'TODO',
       ...initialData,
@@ -25,7 +25,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
     <form onSubmit={handleSubmit}>
       <Box display="flex" flexDirection="column" alignItems="flex-end">
         <TextField
-          error={errors.title && touched.title}
+          error={errors.title}
           margin="normal"
           id="title"
           label="Title"
@@ -35,10 +35,10 @@ const IssueForm = ({ initialData, handleOperation }) => {
           variant="outlined"
           onChange={handleChange}
           value={values.title}
-          helperText={errors.title && touched.title && errors.title}
+          helperText={errors.title}
         />
         <TextField
-          error={errors.description && touched.description}
+          error={errors.description}
           margin="normal"
           id="description"
           name="description"
@@ -51,10 +51,10 @@ const IssueForm = ({ initialData, handleOperation }) => {
           type="text"
           onChange={handleChange}
           value={values.description}
-          helperText={errors.description && touched.description && errors.description}
+          helperText={errors.description && errors.description}
         />
         <TextField
-          error={errors.estimate && touched.estimate}
+          error={errors.estimate}
           margin="normal"
           variant="outlined"
           id="estimate"
@@ -64,10 +64,10 @@ const IssueForm = ({ initialData, handleOperation }) => {
           type="number"
           onChange={handleChange}
           value={values.estimate}
-          helperText={errors.estimate && touched.estimate && errors.estimate}
+          helperText={errors.estimate && errors.estimate}
         />
         <TextField
-          error={errors.status && touched.status}
+          error={errors.status}
           margin="normal"
           id="status"
           label="Status"
@@ -78,7 +78,7 @@ const IssueForm = ({ initialData, handleOperation }) => {
           variant="outlined"
           onChange={handleChange}
           value={values.status}
-          helperText={errors.status && touched.status && errors.status}
+          helperText={errors.status && errors.status}
         />
         <Button type="submit" variant="contained" color="primary">
           <Icon>save_alt</Icon>

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Typography, Box, Paper } from '@material-ui/core';
 import IssuesTable from 'Components/IssuesTable';
 import IssueModal from 'Components/IssueModal';
 import useIssues from 'Hooks/useIssues';
@@ -55,13 +54,6 @@ const IssueBoard = () => {
   };
   return (
     <>
-      <Paper variant="elevation">
-        <Box p={2}>
-          <Typography variant="h4" align="center">
-            Recruitment Task - Agile Board
-          </Typography>
-        </Box>
-      </Paper>
       <IssuesTable
         setIssueModal={setIssueModal}
         isLoading={isLoading}

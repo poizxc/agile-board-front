@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5699edb64a992ced8e8b9b4c6e761080",
+    "revision": "c9e625339ad5f9642bc70164951c57cc",
     "url": "/agile-board-front/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/agile-board-front/static/js/2.049acc7a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "61c205d16e18b59f7f99",
-    "url": "/agile-board-front/static/js/main.6a2f1b71.chunk.js"
+    "revision": "d672d301c018bbae6141",
+    "url": "/agile-board-front/static/js/main.f222c3e2.chunk.js"
   },
   {
     "revision": "b6579b7d9eeb11ea5a8f",

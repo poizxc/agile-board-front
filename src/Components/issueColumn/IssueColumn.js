@@ -22,7 +22,7 @@ export default ({ column, children }) => {
         >
           <Box borderRadius={2} p={1} mb={2}>
             <Typography align="center">{column}</Typography>
-            <Divider variant="fullwidth" />
+            <Divider variant="fullWidth" />
           </Box>
           {children()}
           {provided.placeholder}

@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import IssueBoard from 'Components/IssueBoard';
 import * as serviceWorker from 'serviceWorker';
+import MessageProvider from 'contexts/MessageContext';
+import Message from 'Components/Message';
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
-    <IssueBoard />
+    <MessageProvider>
+      <IssueBoard />
+      <Message />
+    </MessageProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

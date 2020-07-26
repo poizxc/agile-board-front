@@ -9,14 +9,14 @@ import Issue from 'Components/Issue';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    marginTop: 50,
+    marginTop: 40,
     paddingBottom: 50,
     marginBottom: 20,
     position: 'relative',
   },
 }));
 
-export default ({ setIssueModal, setIssues, issues, isLoading, isError }) => {
+export default ({ setIssueModal, setIssues, issues, isLoading, isError, handleDelete }) => {
   const classes = useStyles();
 
   const handleOnDragEnd = async ({ draggableId, source, destination }) => {
@@ -40,14 +40,7 @@ export default ({ setIssueModal, setIssues, issues, isLoading, isError }) => {
       return;
     }
   };
-  const handleDelete = async (uuid, column) => {
-    try {
-      await axios.delete(`${ISSUES_URL}/${uuid}`);
-      setIssues({ ...issues, [column]: issues[column].filter((issue) => issue.uuid !== uuid) });
-    } catch (e) {
-      console.log(e);
-    }
-  };
+
   return (
     <Container className={classes.container} maxWidth="md">
       {isLoading ? (

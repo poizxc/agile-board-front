@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { ISSUES_URL } from 'Config/constants';
 import { splitIssuesIntoColumns } from 'Utils';
+import { MessageContext } from 'contexts/MessageContext';
 
 export default () => {
   const [issues, setIssues] = useState({
@@ -10,17 +11,16 @@ export default () => {
     CLOSED: [],
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const { showMessage: showErrorMessage } = useContext(MessageContext);
   useEffect(() => {
     const fetchIssues = async () => {
-      setIsError(false);
       setIsLoading(true);
       try {
         const { data } = await axios.get(ISSUES_URL);
 
         setIssues(splitIssuesIntoColumns(data));
       } catch (error) {
-        setIsError(true);
+        showErrorMessage(error.message);
         console.error(error);
       }
 
@@ -28,7 +28,8 @@ export default () => {
     };
 
     fetchIssues();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { issues, isLoading, isError, setIssues };
+  return { issues, isLoading, setIssues };
 };

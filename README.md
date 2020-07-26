@@ -83,7 +83,7 @@ I hosted **Api** for this on the free plan on **Heroku** so its may feel slow :/
 
 Because I cannot ensure that no one will mess with the data. I created one endpoint to **reset** DB.
 
-```
+```bash
 curl --location --request DELETE 'https://agile-board1.herokuapp.com/api/v1/issues/_/reset-db'
 ```
 

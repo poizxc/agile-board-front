@@ -35,15 +35,11 @@ const IssueBoard = () => {
       columnCopy[indexOfChangedIssue] = newIssue;
       setIssues({ ...issues, [newIssue.status]: columnCopy });
       handleModalClose();
-      showMessage('Successfully Created Issue', 'success');
+      showMessage('Successfully Edited Issue', 'success');
     } catch (e) {
       showMessage(e.message);
       console.error(e);
     }
-  };
-
-  const handleModalClose = () => {
-    setIssueModal({ opened: false });
   };
 
   const handleDelete = async (uuid, column) => {
@@ -57,6 +53,10 @@ const IssueBoard = () => {
     }
   };
 
+  const handleModalClose = () => {
+    setIssueModal({ opened: false });
+  };
+
   return (
     <>
       <IssuesTable
@@ -67,14 +67,12 @@ const IssueBoard = () => {
         handleDelete={handleDelete}
         setIssues={setIssues}
       />
-      {issueModal.opened && (
-        <IssueModal
-          modalData={issueModal}
-          handleClose={handleModalClose}
-          handleEdit={handleEdit}
-          handleCreate={handleCreate}
-        />
-      )}
+      <IssueModal
+        modalData={issueModal}
+        handleClose={handleModalClose}
+        handleEdit={handleEdit}
+        handleCreate={handleCreate}
+      />
     </>
   );
 };

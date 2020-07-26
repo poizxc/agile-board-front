@@ -28,11 +28,9 @@ const IssuesTable = ({ setIssueModal, setIssues, issues, isLoading, isError, han
         showMessage(e.message, 'error');
         console.error(e);
         setIssues(backup);
-        return;
       }
     } else {
       showMessage('Issues Cannot Be Moved Back', 'warning');
-      return;
     }
   };
   const renderColumns = () =>

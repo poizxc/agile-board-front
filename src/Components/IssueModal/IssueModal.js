@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Typography, Box, Container, Paper } from '@material-ui/core';
 import IssueForm from 'Components/IssueForm';
 import useStyles from 'Components/IssuesTable/IssuesTableStyles';
-const IssueModal = ({ modalData: { issue }, handleClose, handleCreate, handleEdit }) => {
+const IssueModal = ({ modalData: { issue, opened }, handleClose, handleCreate, handleEdit }) => {
   const classes = useStyles();
 
   const renderEdit = () => {
@@ -17,7 +17,7 @@ const IssueModal = ({ modalData: { issue }, handleClose, handleCreate, handleEdi
     <Modal
       className={classes.modal}
       disableAutoFocus={true}
-      open={true}
+      open={opened}
       onClose={handleClose}
       aria-labelledby="form-Modal-title"
     >

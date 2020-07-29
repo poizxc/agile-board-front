@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/agile-board-front/static/js/main.f222c3e2.chunk.js",
-    "main.js.map": "/agile-board-front/static/js/main.f222c3e2.chunk.js.map",
+    "main.js": "/agile-board-front/static/js/main.0308e192.chunk.js",
+    "main.js.map": "/agile-board-front/static/js/main.0308e192.chunk.js.map",
     "runtime-main.js": "/agile-board-front/static/js/runtime-main.014ebaff.js",
     "runtime-main.js.map": "/agile-board-front/static/js/runtime-main.014ebaff.js.map",
-    "static/js/2.049acc7a.chunk.js": "/agile-board-front/static/js/2.049acc7a.chunk.js",
-    "static/js/2.049acc7a.chunk.js.map": "/agile-board-front/static/js/2.049acc7a.chunk.js.map",
+    "static/js/2.bf70b08b.chunk.js": "/agile-board-front/static/js/2.bf70b08b.chunk.js",
+    "static/js/2.bf70b08b.chunk.js.map": "/agile-board-front/static/js/2.bf70b08b.chunk.js.map",
     "index.html": "/agile-board-front/index.html",
-    "precache-manifest.5c465160f59fe35e6af85f1a0a17d089.js": "/agile-board-front/precache-manifest.5c465160f59fe35e6af85f1a0a17d089.js",
+    "precache-manifest.cd88197deb6153fd964de91f4796dce8.js": "/agile-board-front/precache-manifest.cd88197deb6153fd964de91f4796dce8.js",
     "service-worker.js": "/agile-board-front/service-worker.js",
-    "static/js/2.049acc7a.chunk.js.LICENSE.txt": "/agile-board-front/static/js/2.049acc7a.chunk.js.LICENSE.txt"
+    "static/js/2.bf70b08b.chunk.js.LICENSE.txt": "/agile-board-front/static/js/2.bf70b08b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.014ebaff.js",
-    "static/js/2.049acc7a.chunk.js",
-    "static/js/main.f222c3e2.chunk.js"
+    "static/js/2.bf70b08b.chunk.js",
+    "static/js/main.0308e192.chunk.js"
   ]
 }
